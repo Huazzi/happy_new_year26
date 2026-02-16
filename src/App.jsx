@@ -85,7 +85,7 @@ const PageView = props => {
             <div className="decoration-top">✨ ★ ✨</div>
             <div className="printer-div">
               <span className="printer-text">
-                亲爱的{userName ? `${userName}` : '友人'}，
+                亲爱的{userName ? `${userName}` : '小可爱'}，
               </span>
               <span className="printer-text">
                 新年快乐！点击接收新年祝福～
