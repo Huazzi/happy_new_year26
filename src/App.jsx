@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ReactPlayer from 'react-player'
 import Present from './Present';
 import './index.css'
 
