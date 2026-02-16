@@ -1,0 +1,443 @@
+.sky {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+.videofilm {
+  /* position: absolute; */
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+}
+h1 {
+  font-size: 42px;
+  color: #FFD700;
+  font-family: '楷体';
+  text-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.6),
+    0 0 20px rgba(255, 215, 0, 0.3);
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  perspective: 1300px;
+  background: linear-gradient(to bottom, #0a0a1a, #1a0a2e);
+  font-family: '楷体', 'SimKai', serif;
+}
+
+/* 新增：烟火效果容器 */
+.fireworks-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+}
+.text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.8s ease;
+}
+.textone {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%);
+  transition: opacity 0.8s ease;
+}
+
+/* 淡出动画 */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.8s ease forwards;
+}
+:root {
+  --margin-top: 0;
+  --margin-left: 0;
+  --animation-duration: 0s;
+  --animation-delay: 0s;
+}
+div {
+  transform-style: preserve-3d;
+}
+.word-box,
+.word-box .word {
+  position: absolute;
+  animation: rotY 0s linear infinite;
+  animation-duration: var(--animation-duration);
+  animation-delay: var(--animation-delay);
+}
+.word-box {
+  margin-top: var(--margin-top);
+}
+.word-box .word {
+  margin-left: var(--margin-left);
+  color: #FFD700 !important;
+  font-size: 24px !important;
+  font-weight: 500;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.7), 0 0 16px rgba(220, 20, 60, 0.4);
+  letter-spacing: 1px;
+}
+.word-box .word {
+  animation-duration: reverse;
+}
+@keyframes rotY {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* 新增：文本淡入放大动画 */
+@keyframes textFadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 新增：祝福词增强效果 */
+@keyframes wordShine {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.7), 0 0 16px rgba(220, 20, 60, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 16px rgba(255, 215, 0, 0.9), 0 0 32px rgba(220, 20, 60, 0.6);
+  }
+}
+.textContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(0px, -20px);
+}
+
+.greeting-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  background: linear-gradient(135deg, rgba(10, 10, 26, 0.85), rgba(26, 10, 46, 0.85));
+  border: 2px solid #FFD700;
+  border-radius: 20px;
+  padding: 40px 60px;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 0 30px rgba(255, 215, 0, 0.5), 
+    inset 0 0 20px rgba(255, 215, 0, 0.1),
+    0 0 60px rgba(220, 20, 60, 0.3);
+  z-index: 100;
+  animation: slideIn 0.8s ease-out;
+  max-width: 90vw;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.decoration-top,
+.decoration-bottom {
+  font-size: 28px;
+  color: #FFD700;
+  letter-spacing: 12px;
+  text-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.8),
+    0 0 20px rgba(255, 215, 0, 0.5),
+    0 0 30px rgba(220, 20, 60, 0.3);
+  animation: float 3s ease-in-out infinite;
+  font-weight: bold;
+}
+
+.decoration-bottom {
+  animation-delay: 0.3s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.printer-div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: auto;
+  color: #FFD700;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-family: '楷体';
+  text-shadow: 
+    0 0 8px rgba(255, 215, 0, 0.7),
+    0 0 16px rgba(220, 20, 60, 0.2);
+}
+
+.printer-text {
+  font-size: 22px;
+  display: inline-block;
+  animation: typewriter 0.8s ease-out forwards;
+  line-height: 1.6;
+}
+
+.printer-text:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.printer-text:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+@keyframes typewriter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.greeting-button {
+  padding: 14px 40px;
+  margin-top: 15px;
+  background: linear-gradient(135deg, #FFD700, #FFA500, #FF6B6B);
+  color: #1a1a1a;
+  border: 2px solid #FFD700;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: '楷体';
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 5px 20px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 107, 107, 0.3);
+  letter-spacing: 2px;
+  animation: buttonPulse 2s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.greeting-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.greeting-button:hover::before {
+  left: 100%;
+}
+
+.greeting-button:hover {
+  background: linear-gradient(135deg, #FFA500, #FF8C00, #FF4444);
+  transform: scale(1.08);
+  box-shadow: 
+    0 8px 30px rgba(255, 215, 0, 0.7),
+    0 0 30px rgba(255, 107, 107, 0.6);
+}
+
+.greeting-button:active {
+  transform: scale(0.96);
+  box-shadow: 
+    0 3px 15px rgba(255, 215, 0, 0.5),
+    0 0 15px rgba(255, 107, 107, 0.4);
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 5px 30px rgba(255, 215, 0, 0.7);
+  }
+}
+
+
+
+@keyframes blink {
+  50% {
+    /* transparent是全透明黑色(black)的速记法，即一个类似rgba(0,0,0,0)这样的值。 */
+    border-color: transparent; /* #00000000 */
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .greeting-container {
+    padding: 30px 40px;
+    border-radius: 15px;
+  }
+  
+  .printer-text {
+    font-size: 18px;
+  }
+  
+  .greeting-button {
+    font-size: 18px;
+    padding: 12px 30px;
+  }
+  
+  .decoration-top,
+  .decoration-bottom {
+    font-size: 24px;
+    letter-spacing: 8px;
+  }
+  
+  .time-div h2,
+  .time-div h3 {
+    font-size: 36px;
+  }
+  
+  .time-div h3 b {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .greeting-container {
+    padding: 25px 30px;
+    gap: 20px;
+  }
+  
+  .printer-text {
+    font-size: 16px;
+  }
+  
+  .greeting-button {
+    font-size: 16px;
+    padding: 10px 25px;
+  }
+  
+  .decoration-top,
+  .decoration-bottom {
+    font-size: 20px;
+    letter-spacing: 6px;
+  }
+  
+  .time-div h2,
+  .time-div h3 {
+    font-size: 28px;
+  }
+  
+  .time-div h3 b {
+    font-size: 40px;
+  }
+}
+
+.time-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  right: 0;
+  z-index: 200;
+}
+
+.time-div h2,
+.time-div h3 {
+  color: #FFD700;
+  font-size: 48px;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.9), 0 0 40px rgba(220, 20, 60, 0.5);
+  font-family: '楷体';
+  animation: pulse 1s ease-in-out infinite;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.time-div h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 42px;
+}
+
+.time-div h3 b {
+  font-size: 64px;
+  color: #FF6B6B;
+  text-shadow: 0 0 30px rgba(255, 107, 107, 0.9), 0 0 60px rgba(255, 107, 107, 0.5);
+  animation: countdownPulse 1s ease-in-out infinite;
+  display: inline-block;
+  min-width: 100px;
+  text-align: center;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+  }
+  50% {
+    opacity: 0.8;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.9);
+  }
+}
+
+@keyframes countdownPulse {
+  0% {
+    transform: scale(1);
+    text-shadow: 0 0 30px rgba(255, 107, 107, 0.9);
+  }
+  50% {
+    transform: scale(1.15);
+    text-shadow: 0 0 50px rgba(255, 107, 107, 1), 0 0 80px rgba(255, 215, 0, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 0 0 30px rgba(255, 107, 107, 0.9);
+  }
+}
